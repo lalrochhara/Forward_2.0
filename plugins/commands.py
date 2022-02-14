@@ -10,12 +10,12 @@ HELP_MSG="Available commands:-\n\n/index - To index a channel\n/forward - To sta
 buttons=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Help", callback_data="help"),
-                InlineKeyboardButton("How Does This Works?", callback_data="abt")
+                InlineKeyboardButton("Ṭanpuina", callback_data="help"),
+                InlineKeyboardButton("Engtin nge a thawh?", callback_data="abt")
             ],
             [
-                InlineKeyboardButton("Source Code", url="https://github.com/subinps/Forward_2.0"),
-                InlineKeyboardButton("Report a Bug", url="https://t.me/subinps")
+                InlineKeyboardButton("Mizo Bot Store", url="https://t.me/mizobotstore"),
+                InlineKeyboardButton("Report a Bug", url="https://t.me/Nickylrca")
             ]
         ]
         )
@@ -64,7 +64,7 @@ async def cb_abt(bot, cb):
     reply_markup=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Source", url="https://github.com/subinps/Forward_2.0"),
+                InlineKeyboardButton("Mizo Bot Store", url="https://t.me/mizobotstore"),
             ]
         ]
     )

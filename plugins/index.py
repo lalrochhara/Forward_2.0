@@ -25,7 +25,7 @@ OWNER=int(Config.OWNER_ID)
 @Client.on_message(filters.private & filters.command(["index"]))
 async def run(bot, message):
     if message.from_user.id != OWNER:
-        await message.reply_text("Who the hell are you!!")
+        await message.reply_text("A tu chu nge i nih a!!")
         return
     while True:
         try:
@@ -110,7 +110,7 @@ async def run(bot, message):
     buttons=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("All Messages", callback_data="all")
+                InlineKeyboardButton("Message zawng zawng", callback_data="all")
             ],
             [
                 InlineKeyboardButton("Document", callback_data="docs"),

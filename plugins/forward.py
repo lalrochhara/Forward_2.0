@@ -19,28 +19,28 @@ OWNER=int(Config.OWNER_ID)
 @Client.on_message(filters.command("status"))
 async def count(bot, m):
     if 1 in status:
-        await m.reply_text("Currently Bot is forwarding messages.")
+        await m.reply_text("Sûankual hian Message a forward mek.")
     if 2 in status:
-        await m.reply_text("Now Bot is Sleeping")
+        await m.reply_text("Sûankual hi a muhil mek")
     if 1 not in status and 2 not in status:
-        await m.reply_text("Bot is Idle now, You can start a task.")
+        await m.reply_text("Sûankual hi a chhawr theih e, I tih tur i ti thei ang.")
 
 @Client.on_message(filters.command('total'))
 async def total(bot, message):
-    msg = await message.reply("Counting total messages in DB...", quote=True)
+    msg = await message.reply("DB lama message awm zat chhiar mek...", quote=True)
     try:
         total = await Data.count_documents()
-        await msg.edit(f'Total Messages: {total}')
+        await msg.edit(f'Message awm zat: {total}')
     except Exception as e:
         await msg.edit(f'Error: {e}')
 
         
 @Client.on_message(filters.command('cleardb'))
 async def clrdb(bot, message):
-    msg = await message.reply("Clearing files from DB...", quote=True)
+    msg = await message.reply("DB aṭangin file thianfai...", quote=True)
     try:
         await Data.collection.drop()
-        await msg.edit(f'Cleared DB')
+        await msg.edit(f'DB thenfai ani')
     except Exception as e:
         await msg.edit(f'Error: {e}')
                 
@@ -49,12 +49,12 @@ async def clrdb(bot, message):
 @Client.on_message(filters.command("forward"))
 async def forward(bot, message):
     if 1 in status:
-        await message.reply_text("A task is already running.")
+        await message.reply_text("Hna thawh mek ani.")
         return
     if 2 in status:
-        await message.reply_text("Sleeping the engine for avoiding ban.")
+        await message.reply_text("Ban i tawh loh nan, Sûankual hi a muhil.")
         return
-    m=await bot.send_message(chat_id=OWNER, text="Started Forwarding")
+    m=await bot.send_message(chat_id=OWNER, text="Forward tih ṭan ani")
     global MessageCount
     mcount = random.randint(10000, 15300)
     acount = random.randint(5000, 6000)
@@ -128,7 +128,7 @@ async def forward(bot, message):
                 try:
                     datetime_ist = datetime.now(IST)
                     ISTIME = datetime_ist.strftime("%I:%M:%S %p - %d %B %Y")
-                    await m.edit(text=f"Total Forwarded : <code>{MessageCount}</code>\nForwarded Using: Bot\nSleeping for {1} Seconds\nLast Forwarded at {ISTIME}")
+                    await m.edit(text=f"Forward tawh zat : <code>{MessageCount}</code>\nForwarded Na: Sûankual\ {1} Seconds atan a muhil\nForward tâwp ber {ISTIME}")
                 except Exception as e:
                     print(e)
                     await bot.send_message(chat_id=OWNER, text=f"LOG-Error: {e}")
@@ -268,7 +268,7 @@ async def forward(bot, message):
                                 try:
                                     datetime_ist = datetime.now(IST)
                                     ISTIME = datetime_ist.strftime("%I:%M:%S %p - %d %B %Y")
-                                    await m.edit(text=f"You have send {MessageCount} messages.\nWaiting for {csleep} Seconds.\nLast Forwarded at {ISTIME}")
+                                    await m.edit(text=f"Message {MessageCount} i thawn tawh.\nWaiting for {csleep} Seconds.\nForward hnuhnung ber chu {ISTIME}")
                                 except Exception as e:
                                     await bot.send_message(OWNER, e)
                                     print(e)
